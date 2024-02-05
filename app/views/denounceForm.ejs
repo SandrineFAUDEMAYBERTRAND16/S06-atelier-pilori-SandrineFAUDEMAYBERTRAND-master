@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+  <main class="content">
+    <h1 class="content-title">PilOri</h1>
+   
+    <section class="segment">
+      <h2 class="segment-title">Dénoncer un site inaccessible</h2>
+      <% if (typeof locals.alert !== "undefined") { %>
+        <span><%= alert.message %></span>
+      <% } %>
+      <form class="form" method="POST" action="/tomates/denoncer">
+        <label class="form-field">
+          Titre du dysfonctionnement
+          <input type="text" class="form-input">
+        </label>
+        <label class="form-field">
+          Description
+          <textarea class="form-input form-input--long"></textarea>
+        </label>
+        <label class="form-field">
+          Adresse de la page web
+          <input type="url" class="form-input">
+        </label>
+        <label class="form-field">
+          Sur quel type de support
+          <select class="form-input">
+            <option>Mobile</option>
+            <option>Ordinateur</option>
+            <option>Lecteur d'écran</option>
+          </select>
+        </label>
+        <label class="form-field">
+          Degré d'importance
+          <select class="form-input">
+            <option>Bloquant</option>
+            <option>Gênant</option>
+            <option>Casse tête</option>
+          </select>
+        </label>
+        <div class="segment-actions">
+          <button type="submit" class="btn">Soumettre le dysfonctionnement à l'équipe de modération</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>

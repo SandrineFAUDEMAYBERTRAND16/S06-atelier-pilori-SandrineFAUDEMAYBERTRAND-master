@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<main class="content">
+    <section class="segment">
+      <article class="detail">
+        <header class="detail-header">
+          <div class="detail-intro">
+            <h1 class="detail-title">
+              <%= website.title %> au pilori
+            </h1>
+          </div>
+          <button class="detail-share"><i data-feather="share-2"></i></button>
+          <span class="detail-counter"><i data-feather="circle"></i> 180</span>
+        </header>
+        <figure class="detail-figure">
+          <img src="/ph-screen.jpg" alt="photo de l'écran d'un téléphone demandant identifiant et mot de passe">
+          <figcaption class="detail-caption">Dysfonctionnement de <%= website.title %></figcaption>
+        </figure>
+        <ul class="detail-list">
+          <li><span class="detail-label">Reporteur</span> : Marie Dupont</li>
+          <li><span class="detail-label">Type</span> : <%= website.level %></li>
+          <li><span class="detail-label">Support</span> : <%= website.device %></li>
+        </ul>
+        <p class="detail-content"><%= website.description %></p>
+        <footer class="detail-actions">
+          <a class="btn">Voir le dysfonctionnement</a>
+          <button class="btn"><i data-feather="check"></i> Inaccessibilité corrigée</button>
+          <button class="btn btn--red"><i data-feather="circle"></i> Lancer une tomate</button>
+        </footer>
+      </article>
+      <footer class="segment-actions">
+        <a href="/tomates" class="btn">
+          Retour à la liste
+        </a>
+      </footer>
+    </section>
+  </main>
+
+<%- include('partials/footer') %>

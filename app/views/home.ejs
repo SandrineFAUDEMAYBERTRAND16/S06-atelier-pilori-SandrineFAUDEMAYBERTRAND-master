@@ -1,0 +1,90 @@
+<%- include('partials/header') %>
+  <main class="content">
+    <h1 class="content-title">PilOri</h1>
+    <section class="segment">
+      <h2 class="segment-title">À vos tomates</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit eos eum nisi similique omnis amet ex, provident, aperiam incidunt, commodi dolorum ad veritatis beatae fuga dolorem perspiciatis totam quos. Voluptatum eveniet laborum alias, quaerat accusamus adipisci beatae, quidem, quis voluptatibus quam possimus? Inventore quasi totam, dolore assumenda voluptatum accusamus eos.</p>
+      <div class="segment-actions">
+        <a class="btn btn--outline" href="/tomates">Envoyer des tomates</a>
+        <a class="btn" href="/app/models/WebSite.js">Commencer la dénonciation</a>
+      </div>
+    </section>
+    <section class="segment">
+      <h2 class="segment-title">Les pires !</h2>
+      <div class="segment-tools">
+        <button class="btn btn--view-mode" data-mode="list" title="Affichage en liste"><i data-feather="list"></i></button>
+        <button class="btn btn--view-mode btn--hidden" data-mode="grid" title="Affichage en mosaïque"><i data-feather="grid"></i></button>
+      </div>
+      <div class="card-container">
+
+        <% for(const website of websites) { %>
+          <article class="card">
+            <div class="card-tags">
+              <span class="card-tag">
+                Moche
+              </span>
+              <span class="card-tag card-tag--red">
+                <i data-feather="circle"></i>
+                130
+              </span>
+            </div>
+            <img class="card-img" src="/ph1.jpg" alt="">
+            <div class="card-content">
+              <h3 class="card-title"> <%= website.title %> </h3>
+              <p class="card-desc"><%= website.description %></p>
+              <a class="card-more" href="/tomates/<%= website.slug %>">Lire la suite</a>
+            </div>
+            <footer class="card-actions">
+              <a class="card-link" href="<%= website.address %>">Consulter le site</a>
+              <button class="card-btn card-btn--red"><i data-feather="circle"></i></button>
+              <button class="card-btn card-btn--light"><i data-feather="check"></i></button>
+              <button class="card-btn card-btn--dark"><i data-feather="share-2"></i></button>
+            </footer>
+          </article>
+        <% } %>
+       
+       
+      </div>
+      <footer class="segment-actions">
+        <a class="btn" href="/tomates">Tout voir</a>
+      </footer>
+    </section>
+    <section class="segment">
+      <h2 class="segment-title">Dénoncer un site inaccessible</h2>
+      <form class="form" method="POST" action="/tomates/denoncer">
+        <label class="form-field">
+          Titre du dysfonctionnement
+          <input type="text" class="form-input" name="title">
+        </label>
+        <label class="form-field">
+          Description
+          <textarea class="form-input form-input--long" name="description"></textarea>
+        </label>
+        <label class="form-field">
+          Adresse de la page web
+          <input type="url" class="form-input" name="address">
+        </label>
+        <label class="form-field">
+          Sur quel type de support
+          <select class="form-input" name="device">
+            <option>Mobile</option>
+            <option>Ordinateur</option>
+            <option>Lecteur d'écran</option>
+          </select>
+        </label>
+        <label class="form-field">
+          Degré d'importance
+          <select class="form-input" name="level">
+            <option>Bloquant</option>
+            <option>Gênant</option>
+            <option>Casse tête</option>
+          </select>
+        </label>
+        <div class="segment-actions">
+          <button type="submit" class="btn">Soumettre le dysfonctionnement à l'équipe de modération</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
